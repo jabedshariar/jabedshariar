@@ -147,6 +147,149 @@ function setupContactForm() {
     });
 }
 
+// Development Popup Message - Show only on first visit
+function showDevelopmentPopup() {
+    // Create popup overlay
+    const popupOverlay = document.createElement('div');
+    popupOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        backdrop-filter: blur(5px);
+    `;
+
+    // Create popup content
+    const popupContent = document.createElement('div');
+    popupContent.style.cssText = `
+        background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        border: 2px solid var(--primary);
+        box-shadow: 0 0 30px rgba(0, 198, 255, 0.5);
+        color: white;
+    `;
+
+    // Add popup title
+    const title = document.createElement('h3');
+    title.textContent = '🚧 Site Under Development';
+    title.style.cssText = `
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    `;
+
+    // Add popup message
+    const message = document.createElement('p');
+    message.textContent = 'This website is currently under development. For any inquiries, please contact me directly on WhatsApp.';
+    message.style.cssText = `
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    `;
+
+    // Add WhatsApp button
+    const whatsappBtn = document.createElement('a');
+    whatsappBtn.href = 'https://wa.me/8801839253317'; // Your WhatsApp number
+    whatsappBtn.target = '_blank';
+    whatsappBtn.style.cssText = `
+        display: inline-block;
+        background: #25D366;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        margin-right: 1rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+    `;
+    whatsappBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Contact on WhatsApp';
+
+    // Add close button
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = 'Continue to Site';
+    closeBtn.style.cssText = `
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s;
+    `;
+
+    // Add hover effects
+    whatsappBtn.addEventListener('mouseenter', () => {
+        whatsappBtn.style.transform = 'translateY(-2px)';
+        whatsappBtn.style.boxShadow = '0 5px 15px rgba(37, 211, 102, 0.4)';
+    });
+
+    whatsappBtn.addEventListener('mouseleave', () => {
+        whatsappBtn.style.transform = 'translateY(0)';
+        whatsappBtn.style.boxShadow = 'none';
+    });
+
+    closeBtn.addEventListener('mouseenter', () => {
+        closeBtn.style.background = 'rgba(0, 198, 255, 0.1)';
+    });
+
+    closeBtn.addEventListener('mouseleave', () => {
+        closeBtn.style.background = 'transparent';
+    });
+
+    // Close popup function
+    function closePopup() {
+        document.body.removeChild(popupOverlay);
+        // Store in localStorage that user has seen the popup
+        localStorage.setItem('devPopupSeen', 'true');
+    }
+
+    closeBtn.addEventListener('click', closePopup);
+
+    // Assemble popup
+    popupContent.appendChild(title);
+    popupContent.appendChild(message);
+    
+    const buttonContainer = document.createElement('div');
+    buttonContainer.style.cssText = 'display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;';
+    buttonContainer.appendChild(whatsappBtn);
+    buttonContainer.appendChild(closeBtn);
+    
+    popupContent.appendChild(buttonContainer);
+    popupOverlay.appendChild(popupContent);
+    
+    // Add to page
+    document.body.appendChild(popupOverlay);
+
+    // Close popup when clicking outside content
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            closePopup();
+        }
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closePopup();
+        }
+    });
+}
+
+// Check if it's user's first visit
+function isFirstVisit() {
+    return !localStorage.getItem('devPopupSeen');
+}
+
 // Initialize everything when page loads
 window.addEventListener('DOMContentLoaded', () => {
     createCircuitAnimation();
@@ -156,4 +299,10 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // Add scroll event listener for header
     window.addEventListener('scroll', handleHeaderScroll);
+    
+    // Show development popup only on first visit
+    if (isFirstVisit()) {
+        // Show popup after a small delay so page loads first
+        setTimeout(showDevelopmentPopup, 1000);
+    }
 });
