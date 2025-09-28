@@ -147,10 +147,11 @@ function setupContactForm() {
     });
 }
 
-// Development Popup Message - Show only on first visit
+// Development Popup Message - Show on every page load
 function showDevelopmentPopup() {
     // Create popup overlay
     const popupOverlay = document.createElement('div');
+    popupOverlay.id = 'devPopupOverlay';
     popupOverlay.style.cssText = `
         position: fixed;
         top: 0;
@@ -248,9 +249,10 @@ function showDevelopmentPopup() {
 
     // Close popup function
     function closePopup() {
-        document.body.removeChild(popupOverlay);
-        // Store in localStorage that user has seen the popup
-        localStorage.setItem('devPopupSeen', 'true');
+        const popup = document.getElementById('devPopupOverlay');
+        if (popup) {
+            document.body.removeChild(popup);
+        }
     }
 
     closeBtn.addEventListener('click', closePopup);
@@ -285,11 +287,6 @@ function showDevelopmentPopup() {
     });
 }
 
-// Check if it's user's first visit
-function isFirstVisit() {
-    return !localStorage.getItem('devPopupSeen');
-}
-
 // Initialize everything when page loads
 window.addEventListener('DOMContentLoaded', () => {
     createCircuitAnimation();
@@ -300,9 +297,17 @@ window.addEventListener('DOMContentLoaded', () => {
     // Add scroll event listener for header
     window.addEventListener('scroll', handleHeaderScroll);
     
-    // Show development popup only on first visit
-    if (isFirstVisit()) {
-        // Show popup after a small delay so page loads first
-        setTimeout(showDevelopmentPopup, 1000);
-    }
+    // Show development popup on EVERY page load
+    // Show popup after a small delay so page loads first
+    setTimeout(showDevelopmentPopup, 500);
+});
+
+// Also show popup when page is fully loaded as a backup
+window.addEventListener('load', () => {
+    // Double check if popup exists, if not show it
+    setTimeout(() => {
+        if (!document.getElementById('devPopupOverlay')) {
+            showDevelopmentPopup();
+        }
+    }, 1000);
 });
