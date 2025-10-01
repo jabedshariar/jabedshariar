@@ -9,7 +9,7 @@ function setupThemeToggle() {
     
     // Check for saved theme or prefer color scheme
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: drk)').matches;
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -27,13 +27,12 @@ function setupThemeToggle() {
 
 function updateThemeIcon(icon, theme) {
     if (theme === 'dark') {
-        icon.className = 'fas fa-sun';
-    } else {
         icon.className = 'fas fa-moon';
+    } else {
+        icon.className = 'fas fa-sun';
     }
 }
 
-// EmailJS Form Handling
 // EmailJS Form Handling
 function setupContactForm() {
     const contactForm = document.getElementById('contact-form');
@@ -42,34 +41,14 @@ function setupContactForm() {
     const btnLoading = document.getElementById('btn-loading');
     const formMessage = document.getElementById('form-message');
 
-    // Debug: Check if elements exist
-    console.log('Contact form elements:', {
-        contactForm: !!contactForm,
-        submitBtn: !!submitBtn,
-        btnText: !!btnText,
-        btnLoading: !!btnLoading,
-        formMessage: !!formMessage
-    });
-
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        
-        console.log('Form submitted'); // Debug log
         
         // Show loading state
         btnText.style.display = 'none';
         btnLoading.style.display = 'block';
         submitBtn.disabled = true;
         
-        // Get form data for debugging
-        const formData = new FormData(this);
-        console.log('Form data:', {
-            from_name: formData.get('from_name'),
-            from_email: formData.get('from_email'),
-            subject: formData.get('subject'),
-            message: formData.get('message')
-        });
-
         // Send email using EmailJS
         emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
             .then(function(response) {
@@ -112,6 +91,7 @@ function setupContactForm() {
         }, hideTime);
     }
 }
+
 // Circuit Animation
 function createCircuitAnimation() {
     const container = document.getElementById('circuitAnimation');
@@ -173,13 +153,13 @@ function createCircuitAnimation() {
     document.head.appendChild(style);
 }
 
-// Certificate Modal Functions
+// Certificate Modal Functions (FIXED)
 function openCertificateModal(certificateUrl) {
     const modal = document.getElementById('certificateModal');
-    const certificateFrame = document.getElementById('certificateFrame');
+    const certificateImage = document.getElementById('certificateImage');
     const downloadLink = document.getElementById('downloadCertificate');
     
-    certificateFrame.src = certificateUrl;
+    certificateImage.src = certificateUrl;
     downloadLink.href = certificateUrl;
     modal.style.display = 'block';
     
@@ -200,13 +180,13 @@ function openCertificateModal(certificateUrl) {
 
 function closeCertificateModal() {
     const modal = document.getElementById('certificateModal');
-    const certificateFrame = document.getElementById('certificateFrame');
+    const certificateImage = document.getElementById('certificateImage');
     
     modal.style.display = 'none';
-    certificateFrame.src = ''; // Clear the iframe source
+    certificateImage.src = ''; // Clear the image source
 }
 
-// Animate skill bars on scroll
+// Animate skill bars on scroll (FIXED)
 function animateSkillBars() {
     const skillBars = document.querySelectorAll('.skill-progress');
     
@@ -252,7 +232,7 @@ function setupSmoothScrolling() {
     });
 }
 
-// Development Popup Message - Show on every page load
+// Development Popup Message
 function showDevelopmentPopup() {
     // Create popup overlay
     const popupOverlay = document.createElement('div');
@@ -398,7 +378,7 @@ window.addEventListener('DOMContentLoaded', () => {
     animateSkillBars();
     setupSmoothScrolling();
     setupContactForm();
-    setupThemeToggle(); // ADDED: Initialize theme toggle
+    setupThemeToggle();
     
     // Add scroll event listener for header
     window.addEventListener('scroll', handleHeaderScroll);
@@ -415,4 +395,3 @@ window.addEventListener('load', () => {
         }
     }, 1000);
 });
-
