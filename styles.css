@@ -291,7 +291,105 @@ section {
     border-radius: 4px;
     font-weight: 600;
 }
+/* Academic Qualification Section */
+#academic {
+    padding: 80px 20px;
+    background: var(--dark-gray);
+}
 
+.academic-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.academic-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--primary);
+    border: 1px solid rgba(0, 198, 255, 0.1);
+}
+
+.academic-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 198, 255, 0.3);
+}
+
+.academic-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.academic-content h3 {
+    color: var(--light);
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.institution {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.duration {
+    color: var(--gray);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.grade {
+    color: var(--light);
+    font-weight: 600;
+    font-size: 1rem;
+    background: rgba(0, 198, 255, 0.1);
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px solid rgba(0, 198, 255, 0.3);
+}
+
+/* Responsive Design for Academic Section */
+@media (max-width: 768px) {
+    .academic-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+    
+    .academic-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .academic-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    #academic {
+        padding: 60px 20px;
+    }
+}
 /* Projects Section */
 .projects-grid {
     display: grid;
