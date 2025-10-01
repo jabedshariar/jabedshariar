@@ -832,6 +832,7 @@ footer {
 .fade-in {
     animation: fadeInUp 0.8s ease forwards;
 /* ===== DARK/LIGHT MODE TOGGLE ===== */
+/* ===== DARK/LIGHT MODE TOGGLE ===== */
 .theme-toggle {
     background: transparent;
     border: 2px solid var(--primary);
@@ -865,34 +866,67 @@ footer {
 }
 
 [data-theme="light"] body {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
-    color: var(--light);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%) !important;
+    color: var(--light) !important;
+}
+
+[data-theme="light"] .research-work,
+[data-theme="light"] #academic,
+[data-theme="light"] #skills,
+[data-theme="light"] #projects,
+[data-theme="light"] #publications,
+[data-theme="light"] #experience,
+[data-theme="light"] #contact {
+    background: var(--bg-secondary) !important;
 }
 
 [data-theme="light"] .research-card,
 [data-theme="light"] .project-card,
 [data-theme="light"] .academic-item,
 [data-theme="light"] .timeline-content,
-[data-theme="light"] .publication-item {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--light);
+[data-theme="light"] .publication-item,
+[data-theme="light"] .skill-category {
+    background: var(--card-bg) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: var(--light) !important;
 }
 
 [data-theme="light"] header {
-    background: rgba(248, 249, 250, 0.95);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(248, 249, 250, 0.95) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 [data-theme="light"] nav a {
-    color: var(--light);
+    color: var(--light) !important;
 }
 
 [data-theme="light"] .form-group input,
 [data-theme="light"] .form-group textarea {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    color: var(--light);
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    color: var(--light) !important;
+}
+
+[data-theme="light"] .section-title {
+    color: var(--light) !important;
+}
+
+[data-theme="light"] .hero h1,
+[data-theme="light"] .hero h3 {
+    background: linear-gradient(to right, #0072ff, #00c6ff) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
+[data-theme="light"] .hero p {
+    color: var(--light) !important;
+}
+
+[data-theme="light"] footer {
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: var(--light) !important;
 }
 
 /* ===== EMAILJS FORM STYLES ===== */
@@ -928,3 +962,4 @@ footer {
     border: 1px solid rgba(244, 67, 54, 0.3);
 }
 }
+
