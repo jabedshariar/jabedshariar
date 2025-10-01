@@ -1,3 +1,88 @@
+// EmailJS Configuration
+const EMAILJS_SERVICE_ID = 'service_tu3itto';
+const EMAILJS_TEMPLATE_ID = 'template_zzocpjn';
+
+// Theme Management
+function setupThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Check for saved theme or prefer color scheme
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(themeIcon, currentTheme);
+    
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(themeIcon, newTheme);
+    });
+}
+
+function updateThemeIcon(icon, theme) {
+    if (theme === 'dark') {
+        icon.className = 'fas fa-sun';
+    } else {
+        icon.className = 'fas fa-moon';
+    }
+}
+
+// EmailJS Form Handling
+function setupContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnLoading = document.getElementById('btn-loading');
+    const formMessage = document.getElementById('form-message');
+
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Show loading state
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'block';
+        submitBtn.disabled = true;
+        
+        // Get current date for the template
+        const currentDate = new Date().toLocaleString();
+        
+        // Send email using EmailJS
+        emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+            .then(function() {
+                // Success message
+                showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
+                contactForm.reset();
+            }, function(error) {
+                // Error message
+                showMessage('Failed to send message. Please try again or email me directly.', 'error');
+                console.error('EmailJS Error:', error);
+            })
+            .finally(function() {
+                // Reset button state
+                btnText.style.display = 'block';
+                btnLoading.style.display = 'none';
+                submitBtn.disabled = false;
+            });
+    });
+
+    function showMessage(message, type) {
+        formMessage.textContent = message;
+        formMessage.className = `form-message ${type}`;
+        formMessage.style.display = 'block';
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+        }, 5000);
+    }
+}
+
 // Circuit Animation
 function createCircuitAnimation() {
     const container = document.getElementById('circuitAnimation');
@@ -138,15 +223,6 @@ function setupSmoothScrolling() {
     });
 }
 
-// Form Submission
-function setupContactForm() {
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Thank you for your message! I will get back to you soon.');
-        this.reset();
-    });
-}
-
 // Development Popup Message - Show on every page load
 function showDevelopmentPopup() {
     // Create popup overlay
@@ -199,7 +275,7 @@ function showDevelopmentPopup() {
 
     // Add WhatsApp button
     const whatsappBtn = document.createElement('a');
-    whatsappBtn.href = 'https://wa.me/8801839253317'; // Your WhatsApp number
+    whatsappBtn.href = 'https://wa.me/8801839253317';
     whatsappBtn.target = '_blank';
     whatsappBtn.style.cssText = `
         display: inline-block;
@@ -293,18 +369,17 @@ window.addEventListener('DOMContentLoaded', () => {
     animateSkillBars();
     setupSmoothScrolling();
     setupContactForm();
+    setupThemeToggle(); // ADDED: Initialize theme toggle
     
     // Add scroll event listener for header
     window.addEventListener('scroll', handleHeaderScroll);
     
     // Show development popup on EVERY page load
-    // Show popup after a small delay so page loads first
     setTimeout(showDevelopmentPopup, 500);
 });
 
 // Also show popup when page is fully loaded as a backup
 window.addEventListener('load', () => {
-    // Double check if popup exists, if not show it
     setTimeout(() => {
         if (!document.getElementById('devPopupOverlay')) {
             showDevelopmentPopup();
