@@ -9,7 +9,7 @@ function setupThemeToggle() {
     
     // Check for saved theme or prefer color scheme
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: drk)').matches;
     
     const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -34,6 +34,7 @@ function updateThemeIcon(icon, theme) {
 }
 
 // EmailJS Form Handling
+// EmailJS Form Handling
 function setupContactForm() {
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -41,27 +42,55 @@ function setupContactForm() {
     const btnLoading = document.getElementById('btn-loading');
     const formMessage = document.getElementById('form-message');
 
+    // Debug: Check if elements exist
+    console.log('Contact form elements:', {
+        contactForm: !!contactForm,
+        submitBtn: !!submitBtn,
+        btnText: !!btnText,
+        btnLoading: !!btnLoading,
+        formMessage: !!formMessage
+    });
+
     contactForm.addEventListener('submit', function(event) {
         event.preventDefault();
+        
+        console.log('Form submitted'); // Debug log
         
         // Show loading state
         btnText.style.display = 'none';
         btnLoading.style.display = 'block';
         submitBtn.disabled = true;
         
-        // Get current date for the template
-        const currentDate = new Date().toLocaleString();
-        
+        // Get form data for debugging
+        const formData = new FormData(this);
+        console.log('Form data:', {
+            from_name: formData.get('from_name'),
+            from_email: formData.get('from_email'),
+            subject: formData.get('subject'),
+            message: formData.get('message')
+        });
+
         // Send email using EmailJS
         emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
-            .then(function() {
-                // Success message
+            .then(function(response) {
+                console.log('EmailJS Success:', response);
                 showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
                 contactForm.reset();
             }, function(error) {
-                // Error message
-                showMessage('Failed to send message. Please try again or email me directly.', 'error');
-                console.error('EmailJS Error:', error);
+                console.error('EmailJS Error Details:', error);
+                
+                // More specific error messages
+                let errorMessage = 'Failed to send message. ';
+                
+                if (error.text) {
+                    errorMessage += `Error: ${error.text}`;
+                } else if (error.status) {
+                    errorMessage += `Status: ${error.status}`;
+                } else {
+                    errorMessage += 'Please try again or email me directly at shariar33-1531@diu.edu.bd';
+                }
+                
+                showMessage(errorMessage, 'error');
             })
             .finally(function() {
                 // Reset button state
@@ -76,13 +105,13 @@ function setupContactForm() {
         formMessage.className = `form-message ${type}`;
         formMessage.style.display = 'block';
         
-        // Hide message after 5 seconds
+        // Hide message after 8 seconds for errors (longer to read)
+        const hideTime = type === 'error' ? 8000 : 5000;
         setTimeout(() => {
             formMessage.style.display = 'none';
-        }, 5000);
+        }, hideTime);
     }
 }
-
 // Circuit Animation
 function createCircuitAnimation() {
     const container = document.getElementById('circuitAnimation');
@@ -386,3 +415,4 @@ window.addEventListener('load', () => {
         }
     }, 1000);
 });
+
