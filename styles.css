@@ -831,4 +831,100 @@ footer {
 
 .fade-in {
     animation: fadeInUp 0.8s ease forwards;
+/* ===== DARK/LIGHT MODE TOGGLE ===== */
+.theme-toggle {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Light Mode Variables */
+[data-theme="light"] {
+    --dark: #f8f9fa;
+    --dark-gray: #e9ecef;
+    --light: #212529;
+    --gray: #6c757d;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --bg-secondary: #ffffff;
+}
+
+[data-theme="light"] body {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+    color: var(--light);
+}
+
+[data-theme="light"] .research-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .academic-item,
+[data-theme="light"] .timeline-content,
+[data-theme="light"] .publication-item {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--light);
+}
+
+[data-theme="light"] header {
+    background: rgba(248, 249, 250, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] nav a {
+    color: var(--light);
+}
+
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group textarea {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: var(--light);
+}
+
+/* ===== EMAILJS FORM STYLES ===== */
+#submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.form-message {
+    padding: 0.8rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+}
+
+.form-message.success {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.form-message.error {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
 }
