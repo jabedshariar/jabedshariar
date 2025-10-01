@@ -6,6 +6,13 @@
     <title>Jabed Shariar | Electrical & Electronics Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with your Public Key
+            emailjs.init("0B8FO0d_FCUOmNdiQ");
+        })();
+    </script>
 </head>
 <body>
     <!-- Animated Background -->
@@ -26,6 +33,9 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+            <button id="themeToggle" class="theme-toggle">
+        <i class="fas fa-moon"></i>
+            </button>
     </header>
 
     <!-- Hero Section -->
@@ -641,25 +651,31 @@
                     </div>
                 </div>
             </div>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" required>
+                  <form id="contact-form" class="contact-form">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="from_name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="from_email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn" id="submit-btn">
+                <span id="btn-text">Send Message</span>
+                <div id="btn-loading" class="loading-spinner" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i> Sending...
                 </div>
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+            </button>
+            <div id="form-message" style="margin-top: 1rem;"></div>
+        </form>
         </div>
     </section>
 
