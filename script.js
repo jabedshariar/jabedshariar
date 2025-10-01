@@ -1,6 +1,6 @@
 // EmailJS Configuration
-const EMAILJS_SERVICE_ID = 'service_tu3itto';
-const EMAILJS_TEMPLATE_ID = 'template_zzocpjn';
+const EMAILJS_SERVICE_ID = 'service_f7zxara';
+const EMAILJS_TEMPLATE_ID = 'template_u8rrkgv';
 
 // Theme Management
 function setupThemeToggle() {
