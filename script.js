@@ -276,7 +276,7 @@ function showDevelopmentPopup() {
 
     // Add popup message
     const message = document.createElement('p');
-    message.textContent = 'This website is currently under development. For any inquiries, please contact me directly on WhatsApp.';
+    message.textContent = 'This website is currently under development. Some projects and certificates may not yet be displayed. For any inquiries, please feel free to contact me directly on WhatsApp.';
     message.style.cssText = `
         margin-bottom: 1.5rem;
         line-height: 1.5;
