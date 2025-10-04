@@ -19,22 +19,26 @@
 
     <!-- Header -->
     <header id="header">
-        
-        
         <div class="logo">JS</div>
 
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#academic">Academic</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+      <nav id="mainNav">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#research">Research</a></li> <!-- Add this line -->
+        <li><a href="#academic">Academic</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
         <button id="themeToggle" class="theme-toggle">
             <i class="fas fa-moon"></i>
         </button>
@@ -50,13 +54,12 @@
             
             <p>Motivated Electrical and Electronic Engineering student at Daffodil International University with expertise in circuit design, IoT systems, and renewable energy solutions. Passionate about technology-driven innovations and research.</p>
 
-            <div>
+            <div class="hero-buttons">
                 <a href="CV_JabedShariar.pdf" class="btn" target="_blank"><i class="fas fa-download"></i> Download CV</a>
                 <a href="#contact" class="btn btn-outline">Get In Touch</a>
             </div>
         </div>
     </section>
-
     <!-- Research & Work Section -->
     <section id="research">
         <h2 class="section-title">Research & Work Focus</h2>
@@ -81,7 +84,6 @@
             </div>
         </div>
     </section>
-
     <!-- Academic Qualification Section -->
     <section id="academic">
         <h2 class="section-title">Academic Qualification</h2>
@@ -287,6 +289,65 @@
                 </div>
             </div>
 
+            <!-- Office Tools -->
+            <div class="skill-category fade-in">
+                <h3>Office Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>MS Office Suite</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="90"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>PowerPoint</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="85"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Excel</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="80"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Google Workspace</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="85"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Google Docs/Sheets</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="90"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>OneDrive & Drive</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="85"></div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Lab & Instrumentation -->
             <div class="skill-category fade-in">
                 <h3>Lab & Instrumentation</h3>
@@ -321,144 +382,10 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card fade-in">
-                <div class="project-img">🌞</div>
-                <div class="project-content">
-                    <h3>Performance Analysis of Photovoltaic Panel with ML [2025]</h3>
-                    <p>Machine learning approach to optimize photovoltaic panel performance.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/jabedshariar/Performance-Analysis-of-Photovoltaic-Panel-with-ML" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://docs.google.com/presentation/d/e/2PACX-1vR5qQvXoolNeFbGkoJF2HQkOF1OFbDQfQB2FpRkZ9nez-j9rAKVFtuMd80OREFDhA/pub?start=false&loop=false&delayms=3000" target="_blank"><i class="fas fa-video"></i> Demo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card fade-in">
-                <div class="project-img">🌊</div>
-                <div class="project-content">
-                    <h3>A solar-powered IoT system for real-time water quality monitoring using LoRa and machine learning [2025]</h3>
-                    <p>IoT system using solar power for water quality monitoring, leveraging LoRa and machine learning.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card fade-in">
-                <div class="project-img">🔥</div>
-                <div class="project-content">
-                    <h3>Overheat Protection of Motor [2024]</h3>
-                    <p>System to protect motors from overheating using advanced monitoring techniques.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card fade-in">
-                <div class="project-img">🌡️</div>
-                <div class="project-content">
-                    <h3>PLC-Based Temperature Control System [2024]</h3>
-                    <p>Programmable Logic Controller (PLC) system for precise temperature regulation.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card fade-in">
-                <div class="project-img">🛣️</div>
-                <div class="project-content">
-                    <h3>Road Extraction from Satellite Images (MATLAB) [2023]</h3>
-                    <p>MATLAB-based approach to extract road information from satellite images.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card fade-in">
-                <div class="project-img">📞</div>
-                <div class="project-content">
-                    <h3>Phone Call Detector [2023]</h3>
-                    <p>A system for detecting and logging phone calls using automated algorithms.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card fade-in">
-                <div class="project-img">🔥</div>
-                <div class="project-content">
-                    <h3>Safe Guard Fire Alarm [2022]</h3>
-                    <p>A fire alarm system designed to enhance safety with immediate alerts.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card fade-in">
-                <div class="project-img">🏠</div>
-                <div class="project-content">
-                    <h3>Full Flat Layout Design (AutoCAD) [2022]</h3>
-                    <p>AutoCAD design for a full flat layout, focusing on spatial efficiency and aesthetics.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card fade-in">
-                <div class="project-img">🤖</div>
-                <div class="project-content">
-                    <h3>Project Agrobot 1.0 [2022]</h3>
-                    <p>An autonomous robot project designed to assist in agricultural tasks.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications">
-        <h2 class="section-title">Publications</h2>
-        <div class="publications-list">
-            <div class="publication-item fade-in">
-                <div class="publication-title">"Analyzing fractional order systems of RLβCα circuits: An HF-based efficient approach"</div>
-                <div class="publication-authors">S. Roychoudhury, J. Shariar, and R. Alam</div>
-                <div class="publication-conference">Proc. 2024 IEEE Int. Conf. Smart Power Control and Renewable Energy (ICSPCRE), Rourkela, India, 2024, pp. 1-6</div>
-                <div class="publication-doi">DOI: <a href="https://doi.org/10.1109/ICSPCRE62303.2024.10674916" target="_blank">10.1109/ICSPCRE62303.2024.10674916</a></div>
-            </div>
-            <div class="publication-item fade-in">
-                <div class="publication-title">"A solar-powered IoT system for real-time water quality monitoring using LoRa and machine learning"</div>
-                <div class="publication-authors">J. Shariar, R. Rayhan, U. N. Rohit, H. M. R. Ahammed, and T. Fouzder</div>
-                <div class="publication-conference">Proc. 2025 IEEE 2nd Int. Conf. Computing, Applications and Systems (COMPAS), Kushtia, Bangladesh, Oct. 2025, pp. 1-6</div>
-                <div class="publication-doi">Accepted for presentation</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience & Achievements Section -->
+    <!-- Experience Section -->
     <section id="experience">
-        <h2 class="section-title">Experience & Achievements</h2>
+        <h2 class="section-title">Experience</h2>
         <div class="timeline">
-            <!-- Experiences -->
             <div class="timeline-item left fade-in">
                 <div class="timeline-content clickable" onclick="window.open('https://www.facebook.com/share/p/1BGCZmbf3e/', '_blank')">
                     <div class="timeline-date">Sep 2025 - Present</div>
@@ -530,76 +457,259 @@
                     <p>Represented DIU at IEEE KUET Student Branch events and collaborations.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Achievements -->
-            <div class="timeline-item right fade-in">
-                <div class="timeline-content clickable" onclick="window.open('https://www.facebook.com/share/p/1BGCZmbf3e/', '_blank')">
-                    <div class="timeline-date">2022</div>
+    <!-- Publications Section -->
+    <section id="publications">
+        <h2 class="section-title">Publications</h2>
+        <div class="publications-list">
+            <div class="publication-item fade-in">
+                <div class="publication-title">"Analyzing fractional order systems of RLβCα circuits: An HF-based efficient approach"</div>
+                <div class="publication-authors">S. Roychoudhury, J. Shariar, and R. Alam</div>
+                <div class="publication-conference">Proc. 2024 IEEE Int. Conf. Smart Power Control and Renewable Energy (ICSPCRE), Rourkela, India, 2024, pp. 1-6</div>
+                <div class="publication-doi">DOI: <a href="https://doi.org/10.1109/ICSPCRE62303.2024.10674916" target="_blank">10.1109/ICSPCRE62303.2024.10674916</a></div>
+            </div>
+            <div class="publication-item fade-in">
+                <div class="publication-title">"A solar-powered IoT system for real-time water quality monitoring using LoRa and machine learning"</div>
+                <div class="publication-authors">J. Shariar, R. Rayhan, U. N. Rohit, H. M. R. Ahammed, and T. Fouzder</div>
+                <div class="publication-conference">Proc. 2025 IEEE 2nd Int. Conf. Computing, Applications and Systems (COMPAS), Kushtia, Bangladesh, Oct. 2025, pp. 1-6</div>
+                <div class="publication-doi">Accepted for presentation</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-img">
+                    <img src="projects/pv-ml-analysis.jpg" alt="PV ML Analysis" onerror="this.style.display='none'; this.parentElement.innerHTML='🌞';">
+                </div>
+                <div class="project-content">
+                    <h3>Performance Analysis of Photovoltaic Panel with ML [2025]</h3>
+                    <p>Machine learning approach to optimize photovoltaic panel performance.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/jabedshariar/Performance-Analysis-of-Photovoltaic-Panel-with-ML" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://docs.google.com/presentation/d/e/2PACX-1vR5qQvXoolNeFbGkoJF2HQkOF1OFbDQfQB2FpRkZ9nez-j9rAKVFtuMd80OREFDhA/pub?start=false&loop=false&delayms=3000" target="_blank"><i class="fas fa-video"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-img">
+                    <img src="projects/water-quality.jpg" alt="Water Quality Monitoring" onerror="this.style.display='none'; this.parentElement.innerHTML='🌊';">
+                </div>
+                <div class="project-content">
+                    <h3>A solar-powered IoT system for real-time water quality monitoring using LoRa and machine learning [2025]</h3>
+                    <p>IoT system using solar power for water quality monitoring, leveraging LoRa and machine learning.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-img">
+                    <img src="projects/motor-protection.jpg" alt="Motor Protection" onerror="this.style.display='none'; this.parentElement.innerHTML='🔥';">
+                </div>
+                <div class="project-content">
+                    <h3>Overheat Protection of Motor [2024]</h3>
+                    <p>System to protect motors from overheating using advanced monitoring techniques.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-img">
+                    <img src="projects/plc-temperature.jpg" alt="PLC Temperature Control" onerror="this.style.display='none'; this.parentElement.innerHTML='🌡️';">
+                </div>
+                <div class="project-content">
+                    <h3>PLC-Based Temperature Control System [2024]</h3>
+                    <p>Programmable Logic Controller (PLC) system for precise temperature regulation.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-img">
+                    <img src="projects/road-extraction.jpg" alt="Road Extraction" onerror="this.style.display='none'; this.parentElement.innerHTML='🛣️';">
+                </div>
+                <div class="project-content">
+                    <h3>Road Extraction from Satellite Images (MATLAB) [2023]</h3>
+                    <p>MATLAB-based approach to extract road information from satellite images.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-img">
+                    <img src="projects/phone-detector.jpg" alt="Phone Call Detector" onerror="this.style.display='none'; this.parentElement.innerHTML='📞';">
+                </div>
+                <div class="project-content">
+                    <h3>Phone Call Detector [2023]</h3>
+                    <p>A system for detecting and logging phone calls using automated algorithms.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-img">
+                    <img src="projects/fire-alarm.jpg" alt="Fire Alarm" onerror="this.style.display='none'; this.parentElement.innerHTML='🔥';">
+                </div>
+                <div class="project-content">
+                    <h3>Safe Guard Fire Alarm [2022]</h3>
+                    <p>A fire alarm system designed to enhance safety with immediate alerts.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-img">
+                    <img src="projects/flat-layout.jpg" alt="Flat Layout Design" onerror="this.style.display='none'; this.parentElement.innerHTML='🏠';">
+                </div>
+                <div class="project-content">
+                    <h3>Full Flat Layout Design (AutoCAD) [2022]</h3>
+                    <p>AutoCAD design for a full flat layout, focusing on spatial efficiency and aesthetics.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-img">
+                    <img src="projects/agrobot.jpg" alt="Agrobot" onerror="this.style.display='none'; this.parentElement.innerHTML='🤖';">
+                </div>
+                <div class="project-content">
+                    <h3>Project Agrobot 1.0 [2022]</h3>
+                    <p>An autonomous robot project designed to assist in agricultural tasks.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/shariar33-1531-hub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://your-demo-link-here.com" target="_blank"><i class="fas fa-video"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <h2 class="section-title">Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="achievement-content">
                     <h3>7th Position in DIU Growing Star Program</h3>
+                    <p>2022</p>
                     <p>Recognized among top performers in university talent development program.</p>
                 </div>
             </div>
 
-            <div class="timeline-item left fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-date">2016</div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div class="achievement-content">
                     <h3>13th Position in District-Level Physics Olympiad</h3>
+                    <p>2016</p>
                     <p>Achieved notable position in competitive physics competition.</p>
                 </div>
             </div>
 
-            <div class="timeline-item right fade-in">
-                <div class="timeline-content clickable" onclick="openCertificateModal('https://drive.google.com/file/d/18rG1YgqLMINoyhop27f5q115ieJgtHGW/view?usp=drive_link')">
-                    <div class="timeline-date">2024</div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="achievement-content clickable" onclick="openCertificateModal('https://drive.google.com/file/d/18rG1YgqLMINoyhop27f5q115ieJgtHGW/view?usp=drive_link')">
                     <h3>Certified Organizer - Drone Challenge Segment at 4th International Robotics Olympiad</h3>
+                    <p>2024</p>
                     <p>Organized the Drone Challenge segment of the international competition.</p>
                 </div>
             </div>
 
-            <div class="timeline-item left fade-in">
-                <div class="timeline-content clickable" onclick="openCertificateModal('IIOT.png')">
-                    <div class="timeline-date">2024</div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="achievement-content clickable" onclick="openCertificateModal('IIOT.png')">
                     <h3>Certified Coordinator - IIOT Workshop with DIU Robotics Club</h3>
+                    <p>2024</p>
                     <p>Coordinated Industrial IoT workshop for club members.</p>
                 </div>
             </div>
 
-            <div class="timeline-item right fade-in">
-                <div class="timeline-content clickable" onclick="openCertificateModal('3d.png')">
-                    <div class="timeline-date">2024</div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="achievement-content clickable" onclick="openCertificateModal('3d.png')">
                     <h3>Certified Coordinator - 3D Design with Autodesk Fusion Workshop</h3>
+                    <p>2024</p>
                     <p>Coordinated 3D design workshop using Autodesk Fusion software.</p>
                 </div>
             </div>
 
-            <div class="timeline-item left fade-in">
-                <div class="timeline-content clickable" onclick="openCertificateModal('https://drive.google.com/file/d/18rG1YgqLMINoyhop27f5q115ieJgtHGW/view?usp=drive_link')">
-                    <div class="timeline-date">2023</div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="achievement-content clickable" onclick="openCertificateModal('https://drive.google.com/file/d/18rG1YgqLMINoyhop27f5q115ieJgtHGW/view?usp=drive_link')">
                     <h3>Certified Organizer - Digital Marketing Workshop with IEEE IAS</h3>
+                    <p>2023</p>
                     <p>Organized digital marketing workshop for IEEE IAS DIU SBC</p>
                 </div>
             </div>
 
-            <div class="timeline-item right fade-in">
-                <div class="timeline-content clickable" onclick="openCertificateModal('Machine Learning Mastery Unveiling the Power of AI.png')">
-                    <div class="timeline-date">2024</div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="achievement-content clickable" onclick="openCertificateModal('Machine Learning Mastery Unveiling the Power of AI.png')">
                     <h3>Certified Organizer - Machine Learning Mastery Workshop with IEEE IAS</h3>
+                    <p>2024</p>
                     <p>Organized machine learning workshop for IEEE IAS DIU SBC.</p>
                 </div>
             </div>
 
-            <div class="timeline-item left fade-in">
-                <div class="timeline-content clickable" onclick="openCertificateModal('Empowering Electric Mobility Innovation Organiser.jpg')">
-                    <div class="timeline-date">2024</div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="achievement-content clickable" onclick="openCertificateModal('Empowering Electric Mobility Innovation Organiser.jpg')">
                     <h3>Certified Organizer - Empowering Electric Mobility Innovation Workshop</h3>
+                    <p>2024</p>
                     <p>Organized workshop focused on electric mobility innovations.</p>
                 </div>
             </div>
 
-            <div class="timeline-item right fade-in">
-                <div class="timeline-content clickable" onclick="openCertificateModal('Jabed Shariar_20240626_223935_0001.png')">
-                    <div class="timeline-date">2024</div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="achievement-content clickable" onclick="openCertificateModal('Jabed Shariar_20240626_223935_0001.png')">
                     <h3>Certified Organizer - Navigating the IEEE Journey with Leadership and Community Activities Guidelines</h3>
+                    <p>2024</p>
                     <p>Organized Navigating the IEEE Journey with Leadership and Community Activities Guidelines Workshop IEEE IAS DIU SBC.</p>
                 </div>
             </div>
