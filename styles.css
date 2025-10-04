@@ -33,6 +33,7 @@ body {
     overflow-x: hidden;
     line-height: 1.6;
     transition: all 0.3s ease;
+    min-height: 100vh;
 }
 
 [data-theme="light"] body {
@@ -76,7 +77,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    background: rgba(10, 10, 10, 0.9);
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 198, 255, 0.2);
     transition: all 0.3s ease;
@@ -89,20 +90,51 @@ header {
 
 header.scrolled {
     padding: 0.5rem 5%;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(10, 10, 10, 0.98);
 }
 
 [data-theme="light"] header.scrolled {
     background: rgba(248, 249, 250, 0.98);
 }
 
-.logo {
-    font-size: 1.8rem;
+/* Logo Container with Image and Text */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-right: auto;
+}
+
+.header-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-size: 1.3rem;
     font-weight: 700;
     background: linear-gradient(to right, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    line-height: 1.2;
+}
+
+.logo-subtitle {
+    font-size: 0.8rem;
+    font-family: 'Brush Script MT', cursive;
+    color: var(--primary);
+    font-style: italic;
+    line-height: 1;
 }
 
 /* Mobile Menu Toggle */
@@ -114,6 +146,8 @@ header.scrolled {
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1001;
+    margin-right: 1rem;
 }
 
 nav ul {
@@ -132,6 +166,7 @@ nav a {
     font-weight: 500;
     transition: color 0.3s;
     position: relative;
+    padding: 0.5rem 0;
 }
 
 nav a:hover {
@@ -183,14 +218,16 @@ nav a:hover::after {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 5%;
+    padding: 80px 5% 5%;
     position: relative;
     text-align: center;
+    width: 100%;
 }
 
 .hero-content {
     max-width: 800px;
     z-index: 1;
+    width: 100%;
 }
 
 .profile-image {
@@ -209,22 +246,23 @@ nav a:hover::after {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
     background: linear-gradient(to right, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    line-height: 1.2;
 }
 
 .hero h2 {
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
     margin-bottom: 1.5rem;
     color: var(--gray);
 }
 
 .hero h3 {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     font-weight: 600;
     margin-bottom: 1.5rem;
     background: linear-gradient(to right, var(--primary), var(--secondary));
@@ -234,11 +272,13 @@ nav a:hover::after {
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin-bottom: 2rem;
     max-width: 900px;
     color: var(--light);
     line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-buttons {
@@ -246,6 +286,7 @@ nav a:hover::after {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 /* Button Styling */
@@ -260,6 +301,7 @@ nav a:hover::after {
     text-decoration: none;
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn:hover {
@@ -280,14 +322,16 @@ nav a:hover::after {
 /* Section Styling */
 section {
     padding: 5rem 5%;
+    width: 100%;
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw, 2.5rem);
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
     color: var(--light);
+    width: 100%;
 }
 
 .section-title::after {
@@ -300,6 +344,87 @@ section {
     height: 4px;
     background: linear-gradient(to right, var(--primary), var(--secondary));
     border-radius: 2px;
+}
+
+/* Academic Qualification Section */
+#academic {
+    padding: 80px 5%;
+    background: var(--bg-secondary);
+    width: 100%;
+}
+
+.academic-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.academic-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--primary);
+    border: 1px solid rgba(0, 198, 255, 0.1);
+    width: 100%;
+}
+
+.academic-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 198, 255, 0.3);
+}
+
+.academic-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.academic-content {
+    flex: 1;
+}
+
+.academic-content h3 {
+    color: var(--light);
+    margin-bottom: 8px;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+}
+
+.institution {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+}
+
+.duration {
+    color: var(--gray);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.grade {
+    color: var(--light);
+    font-weight: 600;
+    font-size: 1rem;
+    background: rgba(0, 198, 255, 0.1);
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px solid rgba(0, 198, 255, 0.3);
 }
 /* Research & Work Section */
 .research-work {
@@ -366,80 +491,6 @@ section {
         font-size: 1.1rem;
     }
 }
-/* Academic Qualification Section */
-#academic {
-    padding: 80px 20px;
-    background: var(--bg-secondary);
-}
-
-.academic-container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.academic-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 40px;
-    padding: 30px;
-    background: var(--card-bg);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 4px solid var(--primary);
-    border: 1px solid rgba(0, 198, 255, 0.1);
-}
-
-.academic-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    border-color: rgba(0, 198, 255, 0.3);
-}
-
-.academic-icon {
-    flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 25px;
-    color: white;
-    font-size: 1.5rem;
-}
-
-.academic-content h3 {
-    color: var(--light);
-    margin-bottom: 8px;
-    font-size: 1.3rem;
-}
-
-.institution {
-    color: var(--primary);
-    font-weight: 600;
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
-
-.duration {
-    color: var(--gray);
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-}
-
-.grade {
-    color: var(--light);
-    font-weight: 600;
-    font-size: 1rem;
-    background: rgba(0, 198, 255, 0.1);
-    padding: 5px 12px;
-    border-radius: 20px;
-    display: inline-block;
-    border: 1px solid rgba(0, 198, 255, 0.3);
-}
-
 /* Skills Section */
 .skills-container {
     display: grid;
@@ -487,11 +538,13 @@ section {
     transition: width 1.5s ease-in-out;
 }
 
+
 /* Experience Timeline */
 .timeline {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .timeline::after {
@@ -528,6 +581,7 @@ section {
     border: 1px solid rgba(0, 198, 255, 0.1);
     position: relative;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .timeline-content:hover {
@@ -612,10 +666,17 @@ section {
 }
 
 /* Projects Section */
+#projects {
+    width: 100%;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
+    /* REMOVE justify-items: center */
+    /* REMOVE max-width: 1200px */
+    /* REMOVE margin: 0 auto */
 }
 
 .project-card {
@@ -624,6 +685,8 @@ section {
     overflow: hidden;
     transition: transform 0.3s;
     border: 1px solid rgba(0, 198, 255, 0.1);
+    width: 100%;
+    /* REMOVE max-width: 400px */
 }
 
 .project-card:hover {
@@ -640,6 +703,7 @@ section {
     color: var(--gray);
     font-size: 3rem;
     overflow: hidden;
+    width: 100%;
 }
 
 .project-img img {
@@ -655,12 +719,14 @@ section {
 
 .project-content {
     padding: 1.5rem;
+    width: 100%;
 }
 
 .project-content h3 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     color: var(--light);
+    /* REMOVE text-align: center */
 }
 
 .project-content p {
@@ -668,32 +734,26 @@ section {
     margin-bottom: 1rem;
     font-size: 0.9rem;
     line-height: 1.5;
+    /* REMOVE text-align: center */
 }
 
 .project-links {
     display: flex;
     gap: 1rem;
+    /* REMOVE justify-content: center */
 }
-
-.project-links a {
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    transition: color 0.3s;
-}
-
-.project-links a:hover {
-    color: var(--secondary);
-}
-
 /* Achievements Section */
+#achievements {
+    width: 100%;
+}
+
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
+    /* REMOVE justify-items: center */
+    /* REMOVE max-width: 1200px */
+    /* REMOVE margin: 0 auto */
 }
 
 .achievement-card {
@@ -703,28 +763,13 @@ section {
     text-align: center;
     border: 1px solid rgba(0, 198, 255, 0.1);
     transition: transform 0.3s ease;
+    width: 100%;
+    /* REMOVE max-width: 350px */
 }
 
 .achievement-card:hover {
     transform: translateY(-5px);
     border-color: rgba(0, 198, 255, 0.3);
-}
-
-.achievement-icon {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-.achievement-content h3 {
-    color: var(--light);
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.achievement-content p {
-    color: var(--gray);
-    margin-bottom: 0.5rem;
 }
 
 /* Certificate Modal */
@@ -828,6 +873,9 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .contact-info {
@@ -852,12 +900,14 @@ section {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    width: 100%;
 }
 
 .form-group label {
@@ -874,6 +924,7 @@ section {
     color: var(--light);
     font-size: 1rem;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 [data-theme="light"] .form-group input,
@@ -914,6 +965,7 @@ section {
     text-align: center;
     font-weight: 500;
     display: none;
+    width: 100%;
 }
 
 .form-message.success {
@@ -934,6 +986,7 @@ footer {
     padding: 2rem 5%;
     text-align: center;
     border-top: 1px solid rgba(0, 198, 255, 0.2);
+    width: 100%;
 }
 
 [data-theme="light"] footer {
@@ -946,6 +999,7 @@ footer {
     justify-content: center;
     gap: 1.5rem;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 .social-links a {
@@ -998,6 +1052,40 @@ footer p {
 @media (max-width: 768px) {
     .mobile-menu-toggle {
         display: block;
+        order: 1;
+        margin-right: 1rem;
+    }
+
+    .logo-container {
+        order: 2;
+        margin-right: 0;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .logo-text {
+        display: none; /* Hide text on mobile, show only image */
+    }
+ .logo-text {
+        display: flex; /* SHOW text on mobile */
+    }
+    
+    .logo-title {
+        font-size: 1.1rem; /* Smaller font for mobile */
+    }
+    
+    .logo-subtitle {
+        font-size: 0.7rem; /* Smaller font for mobile */
+    }
+    
+    .header-logo {
+        width: 35px; /* Slightly smaller image for mobile */
+        height: 35px;
+    }
+
+    .theme-toggle {
+        order: 3;
+        margin-left: 0;
     }
 
     nav ul {
@@ -1006,15 +1094,16 @@ footer p {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(10, 10, 10, 0.95);
+        background: rgba(10, 10, 10, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
         padding: 1rem 0;
         border-top: 1px solid rgba(0, 198, 255, 0.2);
+        z-index: 1000;
     }
 
     [data-theme="light"] nav ul {
-        background: rgba(248, 249, 250, 0.95);
+        background: rgba(248, 249, 250, 0.98);
     }
 
     nav ul.active {
@@ -1024,11 +1113,18 @@ footer p {
     nav li {
         margin: 0;
         text-align: center;
+        width: 100%;
     }
 
     nav a {
         display: block;
-        padding: 0.8rem 1rem;
+        padding: 1rem 2rem;
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        padding: 100px 5% 5%;
     }
 
     .hero h1 {
@@ -1101,11 +1197,16 @@ footer p {
     }
     
     #academic {
-        padding: 60px 20px;
+        padding: 60px 5%;
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .project-card {
+        max-width: 400px;
     }
 
     .skills-container {
@@ -1118,6 +1219,11 @@ footer p {
 
     .achievements-grid {
         grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .achievement-card {
+        max-width: 400px;
     }
 
     .modal-content {
@@ -1135,6 +1241,10 @@ footer p {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 90px 5% 5%;
+    }
+
     .hero h1 {
         font-size: 2rem;
     }
@@ -1168,4 +1278,26 @@ footer p {
     .publication-item {
         padding: 1.2rem;
     }
+
+    .projects-grid,
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card,
+    .achievement-card {
+        max-width: 100%;
+    }
+}
+
+/* Ensure full width and proper centering */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+    max-width: 100%;
 }
