@@ -33,6 +33,39 @@ function updateThemeIcon(icon, theme) {
     }
 }
 
+// Mobile Menu Toggle
+function setupMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navLinks = mainNav.querySelectorAll('a');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        const icon = mobileMenuToggle.querySelector('i');
+        if (mainNav.classList.contains('active')) {
+            icon.className = 'fas fa-times';
+        } else {
+            icon.className = 'fas fa-bars';
+        }
+    });
+
+    // Close mobile menu when clicking on links
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            mainNav.classList.remove('active');
+            mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+        }
+    });
+}
+
 // EmailJS Form Handling
 function setupContactForm() {
     const contactForm = document.getElementById('contact-form');
@@ -153,7 +186,7 @@ function createCircuitAnimation() {
     document.head.appendChild(style);
 }
 
-// Certificate Modal Functions (FIXED)
+// Certificate Modal Functions
 function openCertificateModal(certificateUrl) {
     const modal = document.getElementById('certificateModal');
     const certificateImage = document.getElementById('certificateImage');
@@ -186,7 +219,7 @@ function closeCertificateModal() {
     certificateImage.src = ''; // Clear the image source
 }
 
-// Animate skill bars on scroll (FIXED)
+// Animate skill bars on scroll
 function animateSkillBars() {
     const skillBars = document.querySelectorAll('.skill-progress');
     
@@ -379,6 +412,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setupSmoothScrolling();
     setupContactForm();
     setupThemeToggle();
+    setupMobileMenu();
     
     // Add scroll event listener for header
     window.addEventListener('scroll', handleHeaderScroll);
