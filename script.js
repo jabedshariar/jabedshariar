@@ -33,16 +33,18 @@ function updateThemeIcon(icon, theme) {
     }
 }
 
-// Mobile Menu Toggle
+// Mobile Menu Toggle - FIXED
 function setupMobileMenu() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mainNav = document.getElementById('mainNav');
+    const navList = mainNav.querySelector('ul');
     const navLinks = mainNav.querySelectorAll('a');
 
-    mobileMenuToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
+    mobileMenuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navList.classList.toggle('active');
         const icon = mobileMenuToggle.querySelector('i');
-        if (mainNav.classList.contains('active')) {
+        if (navList.classList.contains('active')) {
             icon.className = 'fas fa-times';
         } else {
             icon.className = 'fas fa-bars';
@@ -52,7 +54,7 @@ function setupMobileMenu() {
     // Close mobile menu when clicking on links
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            mainNav.classList.remove('active');
+            navList.classList.remove('active');
             mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
         });
     });
@@ -60,7 +62,15 @@ function setupMobileMenu() {
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-            mainNav.classList.remove('active');
+            navList.classList.remove('active');
+            mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+        }
+    });
+
+    // Close mobile menu on window resize (if resizing to desktop)
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navList.classList.remove('active');
             mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
         }
     });
@@ -257,10 +267,12 @@ function setupSmoothScrolling() {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
-            window.scrollTo({
-                top: targetSection.offsetTop - 80,
-                behavior: 'smooth'
-            });
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 }
