@@ -426,6 +426,7 @@ section {
     display: inline-block;
     border: 1px solid rgba(0, 198, 255, 0.3);
 }
+
 /* Research & Work Section */
 .research-work {
     background: var(--bg-secondary);
@@ -468,29 +469,6 @@ section {
     color: var(--light);
 }
 
-/* Mobile responsiveness for research section */
-@media (max-width: 768px) {
-    .research-work {
-        padding: 2rem 1rem;
-    }
-    
-    .research-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-    }
-    
-    .research-card {
-        padding: 1.5rem;
-    }
-    
-    .research-card i {
-        font-size: 2rem;
-    }
-    
-    .research-card h3 {
-        font-size: 1.1rem;
-    }
-}
 /* Skills Section */
 .skills-container {
     display: grid;
@@ -537,7 +515,6 @@ section {
     width: 0;
     transition: width 1.5s ease-in-out;
 }
-
 
 /* Experience Timeline */
 .timeline {
@@ -603,6 +580,7 @@ section {
 
 .timeline-item:nth-child(even) .timeline-content::after {
     left: -10px;
+    right: auto;
 }
 
 .timeline-date {
@@ -674,9 +652,6 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
-    /* REMOVE justify-items: center */
-    /* REMOVE max-width: 1200px */
-    /* REMOVE margin: 0 auto */
 }
 
 .project-card {
@@ -686,7 +661,6 @@ section {
     transition: transform 0.3s;
     border: 1px solid rgba(0, 198, 255, 0.1);
     width: 100%;
-    /* REMOVE max-width: 400px */
 }
 
 .project-card:hover {
@@ -726,7 +700,6 @@ section {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     color: var(--light);
-    /* REMOVE text-align: center */
 }
 
 .project-content p {
@@ -734,14 +707,25 @@ section {
     margin-bottom: 1rem;
     font-size: 0.9rem;
     line-height: 1.5;
-    /* REMOVE text-align: center */
 }
 
 .project-links {
     display: flex;
     gap: 1rem;
-    /* REMOVE justify-content: center */
 }
+
+.project-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.project-links a:hover {
+    color: var(--secondary);
+}
+
 /* Achievements Section */
 #achievements {
     width: 100%;
@@ -751,9 +735,6 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
-    /* REMOVE justify-items: center */
-    /* REMOVE max-width: 1200px */
-    /* REMOVE margin: 0 auto */
 }
 
 .achievement-card {
@@ -764,12 +745,28 @@ section {
     border: 1px solid rgba(0, 198, 255, 0.1);
     transition: transform 0.3s ease;
     width: 100%;
-    /* REMOVE max-width: 350px */
 }
 
 .achievement-card:hover {
     transform: translateY(-5px);
     border-color: rgba(0, 198, 255, 0.3);
+}
+
+.achievement-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.achievement-content h3 {
+    color: var(--light);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.achievement-content p {
+    color: var(--gray);
+    font-size: 0.95rem;
 }
 
 /* Certificate Modal */
@@ -868,6 +865,29 @@ section {
     box-shadow: 0 5px 15px rgba(0, 198, 255, 0.2);
 }
 
+/* ResearchGate icon text fallback */
+.rg-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    color: var(--light);
+    transition: color 0.3s, transform 0.3s;
+    line-height: 1;
+}
+
+.rg-icon:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
 /* Contact Section */
 .contact-container {
     display: grid;
@@ -894,6 +914,16 @@ section {
     font-size: 1.5rem;
     color: var(--primary);
     width: 40px;
+}
+
+.contact-item a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: var(--secondary);
 }
 
 .contact-form {
@@ -997,6 +1027,7 @@ footer {
 .social-links {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1.5rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
@@ -1006,6 +1037,7 @@ footer {
     color: var(--light);
     font-size: 1.5rem;
     transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
 }
 
 .social-links a:hover {
@@ -1034,16 +1066,23 @@ footer p {
     animation: fadeInUp 0.8s ease forwards;
 }
 
+/* Ensure full width and proper centering */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .skills-container {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    
+
     .projects-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
-    
+
     .achievements-grid {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
@@ -1063,23 +1102,16 @@ footer p {
         justify-content: center;
     }
 
-    .logo-text {
-        display: none; /* Hide text on mobile, show only image */
-    }
- .logo-text {
-        display: flex; /* SHOW text on mobile */
-    }
-    
     .logo-title {
-        font-size: 1.1rem; /* Smaller font for mobile */
+        font-size: 1.1rem;
     }
-    
+
     .logo-subtitle {
-        font-size: 0.7rem; /* Smaller font for mobile */
+        font-size: 0.7rem;
     }
-    
+
     .header-logo {
-        width: 35px; /* Slightly smaller image for mobile */
+        width: 35px;
         height: 35px;
     }
 
@@ -1130,49 +1162,51 @@ footer p {
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .hero h2 {
         font-size: 1.5rem;
     }
-    
+
     .hero h3 {
         font-size: 1.1rem;
     }
-    
+
     .hero p {
         font-size: 1.1rem;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .btn {
         width: 100%;
         max-width: 250px;
     }
-    
+
     .timeline::after {
         left: 31px;
     }
-    
+
     .timeline-item {
         width: 100%;
         padding-left: 70px;
         padding-right: 25px;
     }
-    
+
     .timeline-item:nth-child(even) {
         left: 0;
     }
-    
+
     .timeline-content::after {
-        left: 21px;
+        left: -39px;
+        right: auto;
     }
-    
+
     .timeline-item:nth-child(even) .timeline-content::after {
-        left: 21px;
+        left: -39px;
+        right: auto;
     }
 
     .close {
@@ -1186,27 +1220,22 @@ footer p {
         text-align: center;
         padding: 25px;
     }
-    
+
     .academic-icon {
         margin-right: 0;
         margin-bottom: 20px;
     }
-    
+
     .academic-content h3 {
         font-size: 1.2rem;
     }
-    
+
     #academic {
         padding: 60px 5%;
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
-        justify-items: center;
-    }
-
-    .project-card {
-        max-width: 400px;
     }
 
     .skills-container {
@@ -1219,11 +1248,6 @@ footer p {
 
     .achievements-grid {
         grid-template-columns: 1fr;
-        justify-items: center;
-    }
-
-    .achievement-card {
-        max-width: 400px;
     }
 
     .modal-content {
@@ -1238,6 +1262,27 @@ footer p {
     section {
         padding: 3rem 5%;
     }
+
+    .research-work {
+        padding: 2rem 1rem;
+    }
+
+    .research-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .research-card {
+        padding: 1.5rem;
+    }
+
+    .research-card i {
+        font-size: 2rem;
+    }
+
+    .research-card h3 {
+        font-size: 1.1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1248,33 +1293,33 @@ footer p {
     .hero h1 {
         font-size: 2rem;
     }
-    
+
     .hero h2 {
         font-size: 1.2rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
-    
+
     .profile-image {
         width: 150px;
         height: 150px;
     }
-    
+
     .academic-item {
         padding: 20px;
     }
-    
+
     .skill-category {
         padding: 1.5rem;
     }
-    
+
     .project-content,
     .achievement-card {
         padding: 1.5rem;
     }
-    
+
     .publication-item {
         padding: 1.2rem;
     }
@@ -1283,21 +1328,4 @@ footer p {
     .achievements-grid {
         grid-template-columns: 1fr;
     }
-
-    .project-card,
-    .achievement-card {
-        max-width: 100%;
-    }
 }
-
-/* Ensure full width and proper centering */
-html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-main {
-    width: 100%;
-    max-width: 100%;
-7}
